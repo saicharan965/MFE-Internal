@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/ui-input",
+  "sourceRoot": "libs/ui-input/src",
+  "prefix": "ariqt",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/ui-input"],
+      "options": {
+        "project": "libs/ui-input/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ui-input/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ui-input/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui-input"],
+      "options": {
+        "jestConfig": "libs/ui-input/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui-input/src/**/*.ts",
+          "libs/ui-input/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

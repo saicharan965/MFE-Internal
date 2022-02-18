@@ -1,0 +1,22 @@
+<button type="button" id="openModal" #openModal class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" [hidden]='true'>
+    Open Modal
+  </button>
+  
+  <!-- Modal -->
+  <div  data-bs-backdrop="static" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{config?.popUpTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+        </div>
+        <div class="modal-body">
+          {{config?.message}}
+        </div>
+        <div class="modal-footer">
+          <ariqt-button data-bs-dismiss="modal" [config]= "closeButtonConfig"></ariqt-button>
+          <ariqt-button data-bs-dismiss="modal" [config]= "YesButtonConfig"></ariqt-button>
+        </div>
+      </div>
+    </div>
+  </div>

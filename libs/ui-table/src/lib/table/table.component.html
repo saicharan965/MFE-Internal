@@ -1,0 +1,24 @@
+<table class="table" *ngIf="canShow && tableHeaders && tableData; else noRecords">
+    <thead>
+      <tr>
+        <th  [inputObject]='tableData'  class="capitalize tableHead" *ngFor="let heading of tableHeaders ; index as i">
+         {{heading}}
+        </th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let record of tableData | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td *ngFor="let headingg of tableHeaders">
+          <ng-container>
+            {{ record[headingg] }}
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls *ngIf="canShow && tableHeaders && tableData" (pageChange)="pageChanged($event)"></pagination-controls>  
+                        
+  <ng-template #noRecords>
+    <strong>No Records Found</strong>
+  </ng-template>
+  

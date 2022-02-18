@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/ui-button",
+  "sourceRoot": "libs/ui-button/src",
+  "prefix": "ariqt",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/ui-button"],
+      "options": {
+        "project": "libs/ui-button/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ui-button/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ui-button/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui-button"],
+      "options": {
+        "jestConfig": "libs/ui-button/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui-button/src/**/*.ts",
+          "libs/ui-button/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

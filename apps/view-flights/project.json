@@ -1,0 +1,109 @@
+{
+  "projectType": "application",
+  "root": "apps/view-flights",
+  "sourceRoot": "apps/view-flights/src",
+  "prefix": "ariqt",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/view-flights",
+        "index": "apps/view-flights/src/index.html",
+        "main": "apps/view-flights/src/main.ts",
+        "polyfills": "apps/view-flights/src/polyfills.ts",
+        "tsConfig": "apps/view-flights/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/view-flights/src/favicon.ico",
+          "apps/view-flights/src/assets"
+        ],
+        "styles": [
+          "apps/view-flights/src/styles.scss",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        ],
+        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"],
+        "customWebpackConfig": {
+          "path": "apps/view-flights/webpack.config.js"
+        },
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/view-flights/src/environments/environment.ts",
+              "with": "apps/view-flights/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/view-flights/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "view-flights:build:production"
+        },
+        "development": {
+          "browserTarget": "view-flights:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 3000,
+        "publicHost": "http://localhost:3000"
+      }
+    },
+    "extract-i18n": {
+      "executor": "ngx-build-plus:extract-i18n",
+      "options": {
+        "browserTarget": "view-flights:build",
+        "extraWebpackConfig": "apps/view-flights/webpack.config.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/view-flights/src/**/*.ts",
+          "apps/view-flights/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/view-flights"],
+      "options": {
+        "jestConfig": "apps/view-flights/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

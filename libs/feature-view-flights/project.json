@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/feature-view-flights",
+  "sourceRoot": "libs/feature-view-flights/src",
+  "prefix": "ariqt",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/feature-view-flights"],
+      "options": {
+        "jestConfig": "libs/feature-view-flights/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/feature-view-flights/src/**/*.ts",
+          "libs/feature-view-flights/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "projects": {
+    "data-flight": "libs/data-flight",
+    "feature-view-flights": "libs/feature-view-flights",
+    "shell": "apps/shell",
+    "shell-e2e": "apps/shell-e2e",
+    "ui-button": "libs/ui-button",
+    "ui-input": "libs/ui-input",
+    "ui-loader": "libs/ui-loader",
+    "ui-popup": "libs/ui-popup",
+    "ui-table": "libs/ui-table",
+    "util": "libs/util",
+    "view-flights": "apps/view-flights",
+    "view-flights-e2e": "apps/view-flights-e2e"
+  }
+}

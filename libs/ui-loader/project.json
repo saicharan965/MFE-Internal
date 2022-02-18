@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/ui-loader",
+  "sourceRoot": "libs/ui-loader/src",
+  "prefix": "ariqt",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/ui-loader"],
+      "options": {
+        "project": "libs/ui-loader/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ui-loader/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ui-loader/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui-loader"],
+      "options": {
+        "jestConfig": "libs/ui-loader/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui-loader/src/**/*.ts",
+          "libs/ui-loader/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
